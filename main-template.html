@@ -1,74 +1,227 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{ data.title }}</title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #f9f9f9;
-      color: #111;
-      margin: 0;
-      padding: 0;
-      line-height: 1.5;
-    }
-    .container {
-      max-width: 960px;
-      background-color: #fff;
-      margin: 20px auto;
-      border: 1px solid #ddd;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-    .header {
-      text-align: center;
-      padding: 25px 10px 10px;
-      border-bottom: 2px solid #eee;
-    }
-    .logo {
-      max-width: 180px;
-      height: auto;
-    }
-    .content {
-      padding: 25px 30px;
-    }
-    h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      color: #000;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 20px 0;
-    }
-    iframe {
-      max-width: 100%;
-    }
-    .footer {
-      text-align: center;
-      font-size: 13px;
-      color: #777;
-      padding: 15px;
-      border-top: 1px solid #eee;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ data.title }}</title>
+<style>
+  body {
+    margin: 0;
+    background: #e6e6e6;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    line-height: 1.5;
+  }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #d0d0d0;
+  }
+
+  header {
+    text-align: center;
+    padding: 25px 0 15px;
+  }
+  header img.logo {
+    max-width: 180px;
+    height: auto;
+  }
+
+  nav.toplinks {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    background: #fafafa;
+    padding: 10px 0;
+  }
+  nav.toplinks a {
+    margin: 0 15px;
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase;
+  }
+
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 15px 0;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    background: #fdfdfd;
+  }
+
+  .features div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .features img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero {
+    background: #000;
+    color: #fff;
+    padding: 35px 20px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 24px;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+  }
+  .hero p {
+    font-size: 15px;
+    margin: 0;
+    color: #ccc;
+  }
+
+  .brands {
+    background: #fafafa;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    font-size: 13px;
+  }
+  .brands a {
+    color: #444;
+    margin: 0 10px;
+  }
+
+  main {
+    padding: 25px 35px;
+  }
+  main h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #111;
+  }
+  .description {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+  }
+
+  .tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .tab {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+  .tab h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+    color: #000;
+  }
+
+  footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    font-size: 13px;
+    padding: 25px 10px;
+  }
+  footer .nav {
+    margin-bottom: 10px;
+  }
+  footer a {
+    color: #ddd;
+    margin: 0 10px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 700px) {
+    .features { flex-direction: column; gap: 10px; }
+    .brands a { display: inline-block; margin: 5px 8px; }
+    main { padding: 15px; }
+  }
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="header">
-      <img class="logo" src="https://sccstest.github.io/suncoast-ebay-template/images/sccs-logo.png" alt="SunCoast Cycle Sports Logo">
+  <div class="page">
+
+    <!-- Header -->
+    <header>
+      <img class="logo" src="https://sccstest.github.io/suncoast-ebay-template/images/sccs-logo.png" alt="SunCoast Cycle Sports">
+    </header>
+
+    <!-- Top Nav -->
+    <nav class="toplinks">
+      <a href="https://stores.ebay.com/suncoastcyclesports" target="_blank">Home</a>
+      <a href="https://www.ebay.com/usr/suncoastcyclesports" target="_blank">About</a>
+      <a href="https://contact.ebay.com/ws/eBayISAPI.dll?FindAnswers&requested=suncoastcyclesports" target="_blank">Contact</a>
+      <a href="https://feedback.ebay.com/ws/eBayISAPI.dll?ViewFeedback2&userid=suncoastcyclesports&rt=nc" target="_blank">Feedback</a>
+    </nav>
+
+    <!-- Icon Row -->
+    <div class="features">
+      <div><img src="https://sccstest.github.io/suncoast-ebay-template/images/icon-shipping.png" alt="">Free Domestic Shipping</div>
+      <div><img src="https://sccstest.github.io/suncoast-ebay-template/images/icon-parts.png" alt="">Thousands of Parts in Stock</div>
+      <div><img src="https://sccstest.github.io/suncoast-ebay-template/images/icon-family.png" alt="">Family-Owned Business</div>
     </div>
 
-    <div class="content">
-      <h1>{{ data.title }}</h1>
-      <hr>
-      <div>{{ data.longdescription | raw }}</div>
+    <!-- Hero -->
+    <div class="hero">
+      <h1>Welcome to the SunCoast Cycle Sports eBay Store</h1>
+      <p>Serving the powersports community for over 20 years — fast shipping, trusted parts, great service.</p>
     </div>
 
-    <div class="footer">
-      Powered by SunCoast Cycle Sports
+    <!-- Brand Row -->
+    <div class="brands">
+      <a>Aprilia</a> | <a>BMW</a> | <a>Buell</a> | <a>Can-Am</a> | <a>Ducati</a> | <a>Honda</a> | <a>Suzuki</a> | <a>Kawasaki</a> | <a>Yamaha</a> | <a>Triumph</a> | <a>KTM</a> | <a>Harley</a> | <a>Polaris</a>
     </div>
+
+    <!-- Main Content -->
+    <main>
+      <h2>{{ data.title }}</h2>
+      <div class="description">{{ data.longdescription | raw }}</div>
+
+      <div class="tabs">
+        <div class="tab">
+          <h3>About Us</h3>
+          <p>We’ve been serving the powersports community for over 20 years. We specialize in quality used OEM motorcycle, ATV, and UTV parts—shipped fast and guaranteed to work as described.</p>
+        </div>
+        <div class="tab">
+          <h3>Customer Service</h3>
+          <p>Our goal is 100% satisfaction. If you experience any issue with your purchase, contact us before opening a case—we’ll make it right.</p>
+        </div>
+        <div class="tab">
+          <h3>Shipping</h3>
+          <p>Most orders ship within one business day. We use FedEx, UPS, or USPS depending on size and location.</p>
+        </div>
+        <div class="tab">
+          <h3>Freight</h3>
+          <p>Engines and frames ship freight on a pallet. Residential delivery or terminal pickup options are available.</p>
+        </div>
+        <div class="tab">
+          <h3>Returns</h3>
+          <p>We accept returns within 30 days of delivery. Items must be returned in the same condition received.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="nav">
+        <a href="https://stores.ebay.com/suncoastcyclesports">Home</a> |
+        <a href="https://www.ebay.com/usr/suncoastcyclesports">About</a> |
+        <a href="https://contact.ebay.com/ws/eBayISAPI.dll?FindAnswers&requested=suncoastcyclesports">Contact</a> |
+        <a href="https://feedback.ebay.com/ws/eBayISAPI.dll?ViewFeedback2&userid=suncoastcyclesports&rt=nc">Feedback</a>
+      </div>
+      &copy; SunCoast Cycle Sports — All Rights Reserved.
+    </footer>
+
   </div>
 </body>
 </html>
