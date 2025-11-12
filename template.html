@@ -1,5 +1,234 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>
-<h1>{{ data.title }}</h1>
-<hr>
-<div>{{ data.longdescription | raw }}</div>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ data.title }}</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- All inline (eBay-safe). Tuned to Frooition palette/spacing. -->
+<style>
+  :root{
+    --black:#000; --charcoal:#222; --white:#fff;
+    --g900:#333; --g800:#444; --g400:#ddd; --g350:#e3e3e3; --g300:#e6e6e6; --g250:#f5f5f5; --g200:#f6f6f6;
+    --accent:#f58220; --accent-hover:#e67619;
+  }
+  html,body{margin:0;padding:0;background:#e6e6e6;color:var(--g900);font:14px/1.6 Arial,Helvetica,sans-serif}
+  a{color:#333;text-decoration:none}
+  a:hover{color:var(--accent);text-decoration:underline}
+  .caps{text-transform:uppercase;letter-spacing:.03em}
+  .center{text-align:center}
+  .wrap{width:100%;max-width:1200px;margin:0 auto;background:#fff;border:1px solid #d0d0d0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .pad-xs{padding:8px} .pad-sm{padding:12px} .pad{padding:20px} .pad-lg{padding:28px 20px}
+  .thin{border-top:1px solid var(--g300)} .divider{border-top:1px solid var(--g350)}
+  .muted{color:#777}
+
+  /* Header / Logo */
+  .logo{max-width:200px;height:auto}
+
+  /* Nav */
+  .topbar{background:#fafafa;border-top:1px solid var(--g400);border-bottom:1px solid var(--g400)}
+  .topbar a{margin:0 18px;font-size:13px;color:#333;font-weight:600}
+  .topbar a:hover{color:var(--accent)}
+
+  /* Feature row */
+  .features{background:#fdfdfd;border-bottom:1px solid var(--g400)}
+  .features td{font-size:14px;color:#444;padding:10px 20px;white-space:nowrap}
+  .ico{width:20px;height:20px;display:inline-block;background:#d8d8d8;border-radius:3px;margin-right:8px;vertical-align:middle}
+
+  /* HERO: full-width background image with overlay */
+  .hero-bg{background:url('https://sccstest.github.io/suncoast-ebay-template/images/s-l1600.webp') center/cover no-repeat}
+  .hero-overlay{background:rgba(0,0,0,.55)}
+  .hero h1{margin:2px 0 6px;font-size:28px;color:#fff}
+  .hero .sub{color:#fff;opacity:.9}
+  .hero p{color:#f3f3f3;margin:10px 0 0}
+  .viewall{display:inline-block;margin-top:16px;background:var(--accent);color:#fff;padding:9px 16px;border-radius:2px}
+  .viewall:hover{background:var(--accent-hover);text-decoration:none}
+
+  /* Brand row */
+  .brands{background:#fafafa;border-bottom:1px solid var(--g400);font-size:13px}
+  .brands a{color:#555;margin:0 10px}
+
+  /* 2-column body */
+  .leftcol{width:260px;background:var(--g250);border-right:1px solid var(--g300);vertical-align:top}
+  .leftbox{border:1px solid var(--g300);background:#fff;margin-bottom:14px}
+  .leftbox h4{margin:0;padding:10px 12px;border-bottom:1px solid #eee;background:var(--g200);font-size:14px;color:#222}
+  .leftbox .inner{padding:10px 12px}
+  .leftlinks a{display:block;padding:8px 2px 8px 4px;border-bottom:1px solid #f2f2f2;color:#333;font-size:13px}
+  .leftlinks a:last-child{border-bottom:0}
+  .leftlinks a:hover{color:var(--accent);text-decoration:underline}
+
+  .maincol{vertical-align:top}
+  .title{font-size:20px;margin:0;color:#111}
+  .rule{height:1px;background:#eaeaea;margin:14px 0}
+
+  /* Static tabs look */
+  .tab h3{margin:18px 0 6px;font-size:16px;color:#000}
+  .tab .row{border-top:1px solid #ededed;padding:14px 0}
+
+  /* Footer */
+  .footer{background:var(--charcoal);color:#ddd;text-align:center}
+  .footer a{color:#ddd;margin:0 12px;font-size:13px}
+  .copy{font-size:12px;color:#bbb;margin-top:8px}
+
+  /* Responsive */
+  @media(max-width:900px){ .leftcol{width:230px} }
+  @media(max-width:760px){
+    .leftcol{display:none}                 /* hide sidebar on mobile */
+    .pad{padding:16px}
+    .topbar a{display:inline-block;margin:6px 10px}
+    .features td{display:block;padding:8px 0}
+    .brands{padding:10px 12px}
+    .hero h1{font-size:22px}
+  }
+</style>
+</head>
+<body>
+
+<table class="wrap" role="presentation" width="100%" cellspacing="0" cellpadding="0">
+  <tr><td>
+
+    <!-- HEADER -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="center pad-lg">
+          <img class="logo" src="https://sccstest.github.io/suncoast-ebay-template/images/sccs-logo.png" alt="SunCoast Cycle Sports">
+        </td>
+      </tr>
+      <tr>
+        <td class="topbar center pad-xs">
+          <a class="caps" href="https://stores.ebay.com/suncoastcyclesports" target="_blank">Home</a>
+          <a class="caps" href="https://www.ebay.com/usr/suncoastcyclesports" target="_blank">About Us</a>
+          <a class="caps" href="https://feedback.ebay.com/ws/eBayISAPI.dll?ViewFeedback2&userid=suncoastcyclesports&rt=nc" target="_blank">Customer Feedback</a>
+          <a class="caps" href="https://my.ebay.com/ws/eBayISAPI.dll?AcceptSavedSeller&linkname=includenewsletter&sellerid=suncoastcyclesports" target="_blank">Newsletter</a>
+          <a class="caps" href="https://contact.ebay.com/ws/eBayISAPI.dll?FindAnswers&requested=suncoastcyclesports&rt=nc" target="_blank">Contact Us</a>
+        </td>
+      </tr>
+    </table>
+
+    <!-- FEATURE ROW -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" class="features">
+      <tr class="center">
+        <td><span class="ico"></span>Free Domestic US Shipping</td>
+        <td><span class="ico"></span>Thousands of parts in stock</td>
+        <td><span class="ico"></span>Family-Owned Business</td>
+      </tr>
+    </table>
+
+    <!-- HERO FULL-WIDTH BACKGROUND -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" class="hero hero-bg">
+      <tr>
+        <td>
+          <div class="hero-overlay">
+            <div class="center pad-lg">
+              <div class="caps sub">Welcome to the</div>
+              <h1 class="caps">Sun Coast Cycle Sports</h1>
+              <div class="caps sub">eBay Store</div>
+              <p>We strive to offer quality new and used parts at a competitive price. We have over 100,000 parts in stock for Motorcycles,<br>
+                 Automobiles, Side-by-sides, Off-road &amp; more!</p>
+              <a class="viewall caps" href="https://stores.ebay.com/SunCoastCycleSports" target="_blank">View All</a>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- BRAND ROW -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="center pad-xs brands">
+          <a>Aprilia</a> | <a>BMW</a> | <a>Buell</a> | <a>Can-Am</a> | <a>Ducati</a> |
+          <a>Honda</a> | <a>Suzuki</a> | <a>Kawasaki</a> | <a>Yamaha</a> | <a>Triumph</a> |
+          <a>KTM</a> | <a>Harley</a> | <a>Polaris</a> | <a>Indian</a>
+        </td>
+      </tr>
+    </table>
+
+    <!-- BODY -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+      <tr>
+
+        <!-- LEFT SIDEBAR (hidden on mobile) -->
+        <td class="leftcol pad">
+          <div class="leftbox">
+            <h4>All Items</h4>
+            <div class="inner">
+              <a class="caps" href="https://www.ebay.com/str/suncoastcyclesports" target="_blank">See our eBay store &gt;&gt;</a>
+            </div>
+          </div>
+
+          <div class="leftbox">
+            <h4>Shop Categories</h4>
+            <div class="inner leftlinks">
+              <a>Aprilia</a><a>BMW</a><a>Buell</a><a>Can-Am</a><a>Ducati</a><a>Honda</a>
+              <a>Suzuki</a><a>Kawasaki</a><a>Yamaha</a><a>Triumph</a><a>KTM</a>
+              <a>Harley Davidson</a><a>Polaris</a><a>Indian</a>
+            </div>
+          </div>
+
+          <div class="leftbox">
+            <h4>Helpful Links</h4>
+            <div class="inner leftlinks">
+              <a href="https://www.ebay.com/usr/suncoastcyclesports" target="_blank">About Seller</a>
+              <a href="https://feedback.ebay.com/ws/eBayISAPI.dll?ViewFeedback2&userid=suncoastcyclesports&rt=nc" target="_blank">View Feedback</a>
+              <a href="https://contact.ebay.com/ws/eBayISAPI.dll?FindAnswers&requested=suncoastcyclesports" target="_blank">Contact Seller</a>
+              <a href="https://www.ebay.com/str/suncoastcyclesports" target="_blank">Visit our Store</a>
+            </div>
+          </div>
+        </td>
+
+        <!-- MAIN COLUMN -->
+        <td class="maincol pad">
+          <h2 class="title">{{ data.title }}</h2>
+          <div class="rule"></div>
+
+          <!-- SureDone injects raw HTML here (images, iframes, etc.) -->
+          <div>{{ data.longdescription | raw }}</div>
+
+          <!-- INFO SECTIONS (static “tabs” look) -->
+          <div class="tab">
+            <div class="row">
+              <h3>About Us</h3>
+              <div class="muted">We’ve been serving the powersports community for over 20 years. We specialize in quality used OEM motorcycle, ATV, and UTV parts—shipped fast and guaranteed to work as described.</div>
+            </div>
+            <div class="row">
+              <h3>Customer Service</h3>
+              <div class="muted">Our goal is 100% satisfaction. If anything isn’t right, message us before opening a case—we’ll make it right.</div>
+            </div>
+            <div class="row">
+              <h3>Shipping</h3>
+              <div class="muted">Most orders ship within one business day via FedEx, UPS, or USPS depending on size and location.</div>
+            </div>
+            <div class="row">
+              <h3>Freight</h3>
+              <div class="muted">Engines and frames ship freight on a pallet. Residential delivery or terminal pickup options are available.</div>
+            </div>
+            <div class="row">
+              <h3>Returns</h3>
+              <div class="muted">30-day returns. Items must be returned in the same condition received.</div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- FOOTER -->
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" class="footer">
+      <tr>
+        <td class="pad">
+          <div>
+            <a href="https://stores.ebay.com/SunCoastCycleSports" target="_blank">Home</a> |
+            <a href="https://www.ebay.com/usr/suncoastcyclesports" target="_blank">About Us</a> |
+            <a href="https://feedback.ebay.com/ws/eBayISAPI.dll?ViewFeedback2&userid=suncoastcyclesports&rt=nc" target="_blank">Customer Feedback</a> |
+            <a href="https://my.ebay.com/ws/eBayISAPI.dll?AcceptSavedSeller&linkname=includenewsletter&sellerid=suncoastcyclesports" target="_blank">Newsletter</a> |
+            <a href="https://contact.ebay.com/ws/eBayISAPI.dll?FindAnswers&requested=suncoastcyclesports&rt=nc" target="_blank">Contact Us</a>
+          </div>
+          <div class="copy">&copy; SunCoast Cycle Sports — All Rights Reserved.</div>
+        </td>
+      </tr>
+    </table>
+
+  </td></tr>
+</table>
+
+</body>
+</html>
