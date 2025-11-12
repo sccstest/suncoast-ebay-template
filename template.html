@@ -1,20 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="https://sccstest.github.io/suncoast-ebay-template/styles/main.css?v=2">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body class="sccs">
-    <h1 class="sccs-title">{{ title }}</h1>
-
-    {# pick a body, prefer longdescription; fall back to description #}
-    {% set body = longdescription is defined and longdescription ? longdescription
-                 : (description is defined and description ? description : '') %}
-
-    <div class="sccs-description">
-      {{ body | raw }}
-    </div>
-  </body>
-</html>
+<h1>{{ data.title }}</h1>
+<div>
+  {{ data.longdescription | raw }}
+</div>
