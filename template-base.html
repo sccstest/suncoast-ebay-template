@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ data.title }}</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: #f8f8f8;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    a { color: #111; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrapper {
+      max-width: 1000px;
+      background: #fff;
+      margin: 0 auto;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header img.logo {
+      max-width: 180px;
+      height: auto;
+    }
+
+    nav.topnav {
+      background: #fafafa;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: center;
+      font-size: 14px;
+      padding: 10px;
+    }
+    nav.topnav a {
+      margin: 0 10px;
+      color: #222;
+    }
+
+    .hero {
+      background: #000;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 26px;
+      margin: 0 0 10px;
+    }
+    .hero p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .content {
+      padding: 25px;
+    }
+    .content h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    .description {
+      margin-bottom: 20px;
+    }
+
+    .tabs {
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+    .tab-section {
+      margin-bottom: 20px;
+    }
+    .tab-section h3 {
+      font-size: 18px;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #fafafa;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+      padding: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 22px; }
+      .content { padding: 15px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- Header -->
+    <header>
+      <img class="logo" src="https://sccstest.github.io/suncoast-ebay-template/images/sccs-logo.png" alt="SunCoast Cycle Sports">
+    </header>
+
+    <!-- Top Navigation -->
+    <nav class="topnav">
+      <a href="https://stores.ebay.com/suncoastcyclesports" target="_blank">Home</a>
+      <a href="https://www.ebay.com/usr/suncoastcyclesports" target="_blank">About Us</a>
+      <a href="https://contact.ebay.com/ws/eBayISAPI.dll?FindAnswers&requested=suncoastcyclesports" target="_blank">Contact</a>
+      <a href="https://feedback.ebay.com/ws/eBayISAPI.dll?ViewFeedback2&userid=suncoastcyclesports&rt=nc" target="_blank">Feedback</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Welcome to the SunCoast Cycle Sports eBay Store</h1>
+      <p>Thousands of quality used motorcycle parts — Fast shipping, trusted seller.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="content">
+      <h2>{{ data.title }}</h2>
+      <div class="description">
+        {{ data.longdescription | raw }}
+      </div>
+
+      <!-- Info Tabs -->
+      <div class="tabs">
+        <div class="tab-section">
+          <h3>About Us</h3>
+          <p>We’ve been serving the powersports community for over 20 years. We specialize in quality used OEM motorcycle, ATV, and UTV parts, shipped fast and guaranteed to work as described.</p>
+        </div>
+
+        <div class="tab-section">
+          <h3>Customer Service</h3>
+          <p>Our goal is 100% satisfaction. If you experience any issue with your purchase, contact us before opening a case—we’ll make it right.</p>
+        </div>
+
+        <div class="tab-section">
+          <h3>Shipping</h3>
+          <p>Most orders ship within one business day. We use FedEx, UPS, or USPS depending on size and location.</p>
+        </div>
+
+        <div class="tab-section">
+          <h3>Freight</h3>
+          <p>Engines and frames ship freight on a pallet. Residential delivery or terminal pickup options are available.</p>
+        </div>
+
+        <div class="tab-section">
+          <h3>Returns</h3>
+          <p>We accept returns within 30 days of delivery. Items must be returned in the same condition received.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      &copy; SunCoast Cycle Sports — All Rights Reserved.
+    </footer>
+  </div>
+</body>
+</html>
