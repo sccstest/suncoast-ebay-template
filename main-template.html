@@ -2,16 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{{ data.title }}</title>
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background-color: #fff;
+      background-color: #f9f9f9;
       color: #111;
       margin: 0;
       padding: 0;
       line-height: 1.5;
+    }
+    .container {
+      max-width: 960px;
+      background-color: #fff;
+      margin: 20px auto;
+      border: 1px solid #ddd;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
     .header {
       text-align: center;
@@ -23,9 +30,7 @@
       height: auto;
     }
     .content {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
+      padding: 25px 30px;
     }
     h1 {
       font-size: 24px;
@@ -37,6 +42,9 @@
       border-top: 1px solid #ccc;
       margin: 20px 0;
     }
+    iframe {
+      max-width: 100%;
+    }
     .footer {
       text-align: center;
       font-size: 13px;
@@ -44,24 +52,23 @@
       padding: 15px;
       border-top: 1px solid #eee;
     }
-    iframe {
-      max-width: 100%;
-    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <img class="logo" src="https://sccstest.github.io/suncoast-ebay-template/images/sccs-logo.png" alt="SunCoast Cycle Sports Logo">
-  </div>
+  <div class="container">
+    <div class="header">
+      <img class="logo" src="https://sccstest.github.io/suncoast-ebay-template/images/sccs-logo.png" alt="SunCoast Cycle Sports Logo">
+    </div>
 
-  <div class="content">
-    <h1>{{ data.title }}</h1>
-    <hr>
-    <div>{{ data.longdescription | raw }}</div>
-  </div>
+    <div class="content">
+      <h1>{{ data.title }}</h1>
+      <hr>
+      <div>{{ data.longdescription | raw }}</div>
+    </div>
 
-  <div class="footer">
-    Powered by SunCoast Cycle Sports
+    <div class="footer">
+      Powered by SunCoast Cycle Sports
+    </div>
   </div>
 </body>
 </html>
